@@ -2,7 +2,7 @@ import HttpException from "./HttpException";
  
 class FileNotFoundException extends HttpException {
   constructor(file: string) {
-    super(404, `File with url '${file}' not found`);
+    super(404, `File with url '${file}' not found or not accessable.`);
   }
 }
  

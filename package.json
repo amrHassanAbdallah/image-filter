@@ -8,7 +8,7 @@
     "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf www/ || true",
-    "build": "npm run clean && tsc && cp .npmrc www/.npmrc && cp package.json www/package.json && mkdir www/tmp/ && cd www && npm i --production && rm package.json && zip -r ../Archive.zip . && cd ..",
+    "build": "npm run clean && tsc && cp .npmrc www/.npmrc && cp package.json www/package.json && mkdir www/tmp/ && cd www && zip -r ../Archive.zip . && cd ..",
     "dev": "ts-node-dev ./src/server.ts"
   },
   "repository": {
@@ -32,11 +32,10 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "axios": "^0.24.0",
     "express": "^4.17.1",
+    "jimp": "^0.16.1",
     "lodash": "^4.17.15",
-    "rimraf": "^3.0.2",
-    "sharp": "^0.23.2"
+    "rimraf": "^3.0.2"
   },
   "engines": {
     "node": "14.15.5"
