@@ -36,7 +36,7 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
       let err = error as Error
       if (err){
         if (err.message == "Could not find MIME for Buffer <null>"){
-          return  reject(new FileNotFoundException(inputURL))
+          return  reject(new FileNotFoundException(inputURL));
         }
       }
 
