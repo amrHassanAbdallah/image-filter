@@ -1,6 +1,5 @@
 import fs from "fs";
 import sharp from "sharp";
-import Jimp = require("jimp");
 import axios  from "axios";
 import FileNotFoundException from "../errors/FileNotFoundException";
 import InternalException from "../errors/InternalException";
