@@ -2,8 +2,12 @@ import HttpException from "./HttpException";
  
 class InternalException extends HttpException {
   constructor(err:unknown) {
-    super(500, `something went wrong!`);
-    console.log(err)
+    let message = "something went wrong!"
+    if (err as Error){
+      let er1 = err as Error
+      message = er1.message
+    }
+    super(500, message);
   }
 }
  
