@@ -1,5 +1,5 @@
 branch-defaults:
-  main:
+  master:
     environment: Hhh-env
 global:
   application_name: hhh
