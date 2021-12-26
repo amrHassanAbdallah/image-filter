@@ -1,4 +1,4 @@
 pwd
 ls 
-eb PORT=$PORT 
+eb setenv PORT=$PORT 
 eb deploy --staged
