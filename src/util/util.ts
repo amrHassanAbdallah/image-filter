@@ -1,6 +1,7 @@
 import fs from "fs";
-import sharp from "sharp";
-import axios  from "axios";
+// import sharp from "sharp";
+import Jimp = require("jimp");
+// import axios  from "axios";
 import FileNotFoundException from "../errors/FileNotFoundException";
 import InternalException from "../errors/InternalException";
 import path from "path";
@@ -15,15 +16,28 @@ import path from "path";
 export async function filterImageFromURL(inputURL: string): Promise<string> {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await axios({ url: inputURL, responseType: "arraybuffer" });
+      //const response = await axios({ url: inputURL, responseType: "arraybuffer" });
       const outpath = path.join(__dirname,"..","..", "tmp","filtered."+ Math.floor(Math.random() * 2000) + ".jpg");
       console.log(outpath)
-      
-      await sharp(response.data).resize(256, 256).grayscale().sharpen(60).toFile(outpath)
-      resolve(outpath)
-    } catch (error) {
-      if (axios.isAxiosError(error)){
-       return  reject(new FileNotFoundException(inputURL))
+      const pic = await Jimp.read(inputURL); 
+
+      await pic.resize(256, 256) // resize
+      .quality(60) // set JPEG quality
+      .greyscale() // set greyscale
+      .write(outpath, () => {
+        resolve(outpath);
+      });
+    //   await sharp(response.data).resize(256, 256).grayscale().sharpen(60).toFile(outpath)
+    //   resolve(outpath)
+     } catch (error) {
+      // if (axios.isAxiosError(error)){
+      //  return  reject(new FileNotFoundException(inputURL))
+      // }
+      let err = error as Error
+      if (err){
+        if (err.message == "Could not find MIME for Buffer <null>"){
+          return  reject(new FileNotFoundException(inputURL))
+        }
       }
 
       
