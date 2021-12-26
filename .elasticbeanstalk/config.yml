@@ -1,0 +1,17 @@
+branch-defaults:
+  main:
+    environment: Hhh-env
+global:
+  application_name: hhh
+  default_ec2_keyname: e-und7gbm9n
+  default_platform: Node.js
+  default_region: us-east-1
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: git
+  workspace_type: Application
+deploy:
+  artifact: ./Archive.zip
