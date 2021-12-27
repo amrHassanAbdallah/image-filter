@@ -35,7 +35,7 @@ import fs from 'fs';
 
   /**************************************************************************** */
 
-  app.get( "/filteredimage", async ( req, res,next ) => {
+  app.get( "/filteredimage", async ( req:express.Request, res:express.Response,next:express.NextFunction ) => {
     try {
       let imageUrl:string = req.query.image_url
       if (!imageUrl){
@@ -61,14 +61,14 @@ import fs from 'fs';
   
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( req, res ) => {
+  app.get( "/", async (req:express.Request, res:express.Response ) => {
     res.send("try GET /filteredimage?image_url={{}}")
   } );
 
 
 
 
-  app.use((req, res, next) => {
+  app.use((req:express.Request, res:express.Response,next:express.NextFunction) => {
     const err = new Error("Not Found");
     next(err);
   });
