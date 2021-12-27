@@ -1,7 +1,7 @@
 [![CircleCI](https://circleci.com/gh/amrHassanAbdallah/aws-ci.svg?style=shield)](https://app.circleci.com/pipelines/github/amrHassanAbdallah/image-filter?branch=master)
 
 
-# Image resize
+# Image filter
 
 Image filter is a simple service built on top of express js using typescript and sharp to resize and apply filters over images.
 
