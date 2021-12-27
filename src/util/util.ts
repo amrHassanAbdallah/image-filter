@@ -17,8 +17,7 @@ export async function filterImageFromURL(inputURL: string): Promise<string> {
   return new Promise(async (resolve, reject) => {
     try {
       //const response = await axios({ url: inputURL, responseType: "arraybuffer" });
-      const outpath = path.join(__dirname,"..","..", "tmp","filtered."+ Math.floor(Math.random() * 2000) + ".jpg");
-      console.log(outpath)
+      const outpath = path.join("tmp","filtered."+ Math.floor(Math.random() * 2000) + ".jpg");
       const pic = await Jimp.read(inputURL); 
 
       await pic.resize(256, 256) // resize
